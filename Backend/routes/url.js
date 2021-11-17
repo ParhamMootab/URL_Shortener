@@ -6,7 +6,7 @@ router = express.Router()
 
 const LinkSchema = require("../config/model")
 
-const baseUrl = "http:localhost:3000"
+const baseUrl = "http:localhost:5000"
 
 router.post('/shorten', async (req, res) =>{
     const longUrl = req.body.longUrl
@@ -20,8 +20,9 @@ router.post('/shorten', async (req, res) =>{
                 longUrl
             })
 
+
             if(url){
-                res.render("index", {shotUrl: url.shortUrl})
+                res.json(url)
             }else{
                 const shortUrl = baseUrl + '/' + urlCode
 
@@ -32,14 +33,14 @@ router.post('/shorten', async (req, res) =>{
                     date: new Date()
                 })
                 await url.save()
-                res.render("index", {shortUrl: url.shortUrl})
+                res.json(url)
             }
         }catch(err){
             console.log(err)
             res.status(500).json("Server error")
         }
     }else{
-        res.render("index", {shortUrl: "Wrong Url " + longUrl})
+        res.json({msg: "Wrong Url"})
     }
 })
 

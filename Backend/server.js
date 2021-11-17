@@ -1,16 +1,13 @@
 const bodyParser = require("body-parser")
 const connection = require('./config/dbConfig')
+const cors = require("cors")
 express = require("express")
 
 const app = express()
-app.use(bodyParser.urlencoded({extended: true}));
-app.use('/static', express.static('views'))
-const PORT = process.env.PORT || 3000
-app.set('view engine', 'ejs');
+app.use(bodyParser.json());
+const PORT = process.env.PORT || 5000
+app.use(cors())
 
-app.get("/", (req, res) =>{
-    res.render("index")
-})
 app.use('/', require('./routes/url'))
 
 

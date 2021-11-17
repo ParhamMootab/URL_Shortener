@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(0, 124, 190);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#root, div.App {
+    height: 100%; 
+}
+
+.container{
+    width: 75%;
+    background-color: rgb(0,175,84);
+    min-height: 100%;
+    margin-top: 30px;
+}
+
+p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+}
+p#description{
+    padding-top: 70px;
+    padding-right: 30%;
+    color: black;
+}
+p#tinyUrl{
+    color: #264653;
+    font-size: small;
+}
+p#longUrl{
+    color: #264653;
+    font-size: small;
+}
+#submitBtn{
+    margin-left: 40%;
+    margin-bottom: 20px;
+}
+
